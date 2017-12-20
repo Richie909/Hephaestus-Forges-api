@@ -1,0 +1,20 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  username: root
+  password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
+  host: mysql
+  encoding: utf8mb4
+  collation: utf8mb4_bin
+
+development:
+  <<: *default
+  database: api_development
+
+test:
+  <<: *default
+  database: api_test
+
+production:
+  <<: *default
+  database: api_production
